@@ -23,23 +23,14 @@ function data(result, word) {
     wrapper.classList.add("active");
     const def = result[0].meanings[0].definitions[0]
     const phon = result[0].meanings[0].partOfSpeech;
+    const syno = result[0].meanings[0].synonyms[0];
 
     document.querySelector(".word p").innerText = result[0].word;
     document.querySelector(".word span").innerText = phon;
     document.querySelector(".meaning span").innerText = def.definition;
-    // document.querySelector(".synonym span").innerText = def.example;
+    document.querySelector(".synonym span").innerText = syno;
 
-    if (def.synonyms[0] == undefined) {
-      synonyms.parentElement.style.display = "none";
-    } else {
-      synonyms.parentElement.style.display = "block";
-      synonyms.innerHTML = "";
-      for (let i = 0; i < 5; i++) {
-        let tag = `<span onclick="search('${def.synonyms[i]}')">${def.synonyms[i]},</span>`;
-        tag = i == 4 ? tag = `<span onclick="search('${def.synonyms[i]}')">${def.synonyms[4]}</span>` : tag;
-        synonyms.insertAdjacentHTML("name", tag);
-      }
-    }
+    
   }
 }
 searchInput.addEventListener("keyup", e => {
