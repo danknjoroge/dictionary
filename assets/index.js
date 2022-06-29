@@ -29,6 +29,8 @@ function data(result, word) {
     document.querySelector(".word span").innerText = phon;
     document.querySelector(".meaning span").innerText = def.definition;
     document.querySelector(".synonym span").innerText = syno;
+    document.querySelector(".example span").innerText = def.example;
+
 
     
   }
